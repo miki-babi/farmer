@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Stock;
+use App\Models\Product;
+use App\Models\Delivery;
 
 class UserController extends Controller
 {
@@ -31,6 +35,12 @@ class UserController extends Controller
 
         // auth()->login($user);
 
-        return redirect()->route('dashboard');
+        if (Auth::user()->role === 'admin') {
+            $stocks=Stock::all();
+            $products=Product::all();
+            $farmers=User::where('role','farmer')->get();
+            $deliveries=Delivery::all();
+            return view('admin.dashboard',compact('stocks','products','farmers','deliveries'));
+        }
     }
 }
