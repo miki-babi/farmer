@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Stocks')
 @section('content')
-    <div class="container mx-auto p-4">
+<div class="container mx-auto p-6 bg-gray-100 rounded-lg shadow-md h-screen">
+    
         <h2 class="text-2xl font-bold mb-4">Your Stock</h2>
         <a href="{{ route('stocks.create') }}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mb-4 inline-block">Add Stock</a>
         <ul class="space-y-4">

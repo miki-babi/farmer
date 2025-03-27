@@ -46,7 +46,8 @@ class StockController extends Controller
 
     public function edit(Stock $stock)
     {
-        return view('stock.edit', compact('stock'));
+        $products = Product::all();
+        return view('stock.edit', compact('stock', 'products'));
     }
 
     public function update(Request $request, Stock $stock)

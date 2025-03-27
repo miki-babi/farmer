@@ -2,7 +2,8 @@
 @section('title', 'Add Stock')
 @section('content')
 {{-- <body class="bg-gray-100 min-h-screen flex items-center justify-center"> --}}
-    <div class="container max-w-lg bg-white shadow-md rounded-lg p-6">
+    <div class="container mx-auto p-6 bg-gray-100 rounded-lg shadow-md h-screen">
+
         <h2 class="text-2xl font-bold mb-6 text-gray-800">Add Stock</h2>
         <form method="POST" action="{{ route('stocks.store') }}" class="space-y-4">
             @csrf

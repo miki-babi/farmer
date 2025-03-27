@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Models\Product;
 use App\Models\Stock;
 use App\Models\Delivery;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
@@ -22,6 +23,17 @@ Route::get('/dashboard', function () {
     return view('dashboard' , compact('deliveries'));
 })->name('dashboard');
 
+Route::get('admin/dashboard', function () {
+    $stocks = Stock::all();
+    $products = Product::all();
+    $farmers = User::where('role', 'farmer')->get();
+    $deliveries = Delivery::all();
+    // dd($stocks);
+    return view('admin.dashboard', compact('stocks', 'products', 'farmers', 'deliveries'));
+})->name('admin.dashboard');
+
+Route::get('/register', [UserController::class, 'showForm'])->name('register.form');
+Route::post('/register', [UserController::class, 'register'])->name('register');
 
 Route::get('admin/stocks', function () {
     $stocks = Stock::all();
@@ -32,4 +44,3 @@ Route::get('admin/stocks', function () {
 Route::resource('deliveries', DeliveryController::class);
 Route::resource('products', ProductController::class);
 Route::resource('stocks', StockController::class);
-Route::resource('users', UserController::class);

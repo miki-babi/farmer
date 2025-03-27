@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Add Product')
 @section('content')
+<div class="container mx-auto p-6 bg-gray-100 rounded-lg shadow-md h-screen">
 
-<div class="container mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
     <h2 class="text-2xl font-bold mb-6 text-gray-800">Add Product</h2>
     <form method="POST" action="{{ route('products.store') }}" class="space-y-4">
         @csrf

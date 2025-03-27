@@ -3,6 +3,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Stock;
+use App\Models\Product;
+use App\Models\Delivery;
+use App\Models\User;
+
 
 class SessionController extends Controller
 {
@@ -22,7 +27,11 @@ class SessionController extends Controller
 
         if (Auth::attempt(['phone' => $request->phone, 'password' => $request->password])) {
             if (Auth::user()->role === 'admin') {
-                return view('admin.dashboard');
+                $stocks=Stock::all();
+                $products=Product::all();
+                $farmers=User::where('role','farmer')->get();
+                $deliveries=Delivery::all();
+                return view('admin.dashboard',compact('stocks','products','farmers','deliveries'));
             }
             return redirect()->route('dashboard');
         }
