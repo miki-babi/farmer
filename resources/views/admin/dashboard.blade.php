@@ -37,6 +37,21 @@
             </div>
         @endforeach
     </div>
+    <h2 class="text-2xl font-semibold mt-6 mb-4">Farmers</h2>
+
+    <div class="space-y-4">
+        @foreach ($users as $user)
+            <div class="p-4 bg-white dark:bg-gray-800 rounded shadow">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <p class="font-semibold">{{ $user->name }}</p>
+                        {{-- <p>{{ $stock->quantity }} kg/l</p> --}}
+                    </div>
+                
+                </div>
+            </div>
+        @endforeach
+    </div>
 
 </div>
 @endsection

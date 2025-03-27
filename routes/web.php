@@ -28,8 +28,9 @@ Route::get('admin/dashboard', function () {
     $products = Product::all();
     $farmers = User::where('role', 'farmer')->get();
     $deliveries = Delivery::all();
+    $users = User::all();
     // dd($stocks);
-    return view('admin.dashboard', compact('stocks', 'products', 'farmers', 'deliveries'));
+    return view('admin.dashboard', compact('stocks', 'products', 'farmers', 'deliveries','users'));
 })->name('admin.dashboard');
 
 Route::get('/register', [UserController::class, 'showForm'])->name('register.form');

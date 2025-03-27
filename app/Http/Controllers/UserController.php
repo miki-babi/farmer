@@ -36,11 +36,12 @@ class UserController extends Controller
         // auth()->login($user);
 
         if (Auth::user()->role === 'admin') {
+            $users=User::all();
             $stocks=Stock::all();
             $products=Product::all();
             $farmers=User::where('role','farmer')->get();
             $deliveries=Delivery::all();
-            return view('admin.dashboard',compact('stocks','products','farmers','deliveries'));
+            return view('admin.dashboard',compact('stocks','products','farmers','deliveries','users'));
         }
     }
 }
