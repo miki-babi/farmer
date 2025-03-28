@@ -27,8 +27,8 @@
                         <p>{{ $stock->quantity }} kg/l</p>
                     </div>
                     <div>
-                        <p class="font-semibold">{{ $stock->product->name }}</p>
-                        <p>{{ $stock->unit_price }} kg/l</p>
+                        <p class="font-semibold">Unit price</p>
+                        <p>{{ $stock->unit_price }} BIRR(per unit)</p>
                     </div>
                     <div class="flex space-x-2">
                         <a href="{{ route('stocks.edit', $stock) }}" class="text-blue-500 hover:underline">Edit</a>
