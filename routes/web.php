@@ -12,9 +12,7 @@ use App\Models\Delivery;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    redirect()->route('login');
-});
+Route::get('/',  [SessionController::class, 'showLoginForm']);
 Route::get('/login', [SessionController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [SessionController::class, 'login']);
 Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
