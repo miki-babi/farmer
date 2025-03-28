@@ -12,8 +12,13 @@ use App\Models\User;
 class SessionController extends Controller
 {
     // Show the login form
+
     public function showLoginForm()
     {
+        //check if user has logged in before 
+        if (Auth::check()) {
+            return redirect()->route('dashboard');
+        }
         return view('auth.login');
     }
 
