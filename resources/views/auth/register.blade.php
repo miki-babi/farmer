@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(["resources/css/app.css", "resources/js/app.js"])
-    <title>Login</title>
+    <title>Register</title>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
@@ -27,11 +27,11 @@
             <label class="block text-sm font-medium text-gray-700">Confirm Password</label>
             <input type="password" name="password_confirmation" class="border p-2 w-full rounded mb-4" required>
         </div>
-            <label class="block text-sm font-medium text-gray-700">Role</label>
+            {{-- <label class="block text-sm font-medium text-gray-700">Role</label>
             <select name="role" class="border p-2 w-full rounded mb-4">
                 <option value="farmer">Farmer</option>
                 <option value="admin">Admin</option>
-            </select>
+            </select> --}}
     
             <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Register</button>
         </form>
