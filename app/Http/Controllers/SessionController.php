@@ -7,7 +7,7 @@ use App\Models\Stock;
 use App\Models\Product;
 use App\Models\Delivery;
 use App\Models\User;
-
+use PhpParser\Node\Stmt\If_;
 
 class SessionController extends Controller
 {
@@ -17,6 +17,9 @@ class SessionController extends Controller
     {
         //check if user has logged in before 
         if (Auth::check()) {
+            if(Auth::user()->role==='admin'){
+                return redirect()->route('admin.dashboard');
+            }
             return redirect()->route('dashboard');
         }
         return view('auth.login');
