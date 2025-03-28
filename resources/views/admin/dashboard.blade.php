@@ -26,6 +26,10 @@
                         <p class="font-semibold">{{ $stock->product->name }}</p>
                         <p>{{ $stock->quantity }} kg/l</p>
                     </div>
+                    <div>
+                        <p class="font-semibold">{{ $stock->product->name }}</p>
+                        <p>{{ $stock->unit_price }} kg/l</p>
+                    </div>
                     <div class="flex space-x-2">
                         <a href="{{ route('stocks.edit', $stock) }}" class="text-blue-500 hover:underline">Edit</a>
                         <form method="POST" action="{{ route('stocks.destroy', $stock) }}" style="display:inline;">
