@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class DeliveryController extends Controller
 {
+    public function getProductsByFarmer($farmerId)
+{
+    $products = Product::where('farmer_id', $farmerId)->get();
+    return response()->json($products);
+}
     public function index()
     {
         $deliveries = Delivery::all();

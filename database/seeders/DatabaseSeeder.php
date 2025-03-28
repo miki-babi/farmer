@@ -19,13 +19,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'phone' => '0967072500',
             'role' => 'admin',
+            'password' => bcrypt('123456'),
+        ]);
+        User::factory()->create([
+            'name' => 'farmer1',
+            'phone' => '0967072576',
+            'role' => 'farmer',
             'password' => bcrypt('12345678'),
         ]);
-        // User::factory()->create([
-        //     'name' => 'farmer1',
-        //     'phone' => '0967072576',
-        //     'role' => 'farmer',
-        //     'password' => bcrypt('12345678'),
-        // ]);
     }
 }

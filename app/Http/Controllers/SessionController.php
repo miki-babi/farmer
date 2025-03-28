@@ -27,11 +27,12 @@ class SessionController extends Controller
 
         if (Auth::attempt(['phone' => $request->phone, 'password' => $request->password])) {
             if (Auth::user()->role === 'admin') {
+                $users=User::all();
                 $stocks=Stock::all();
                 $products=Product::all();
                 $farmers=User::where('role','farmer')->get();
                 $deliveries=Delivery::all();
-                return view('admin.dashboard',compact('stocks','products','farmers','deliveries'));
+                return view('admin.dashboard',compact('stocks','products','farmers','deliveries','users'));
             }
             return redirect()->route('dashboard');
         }
