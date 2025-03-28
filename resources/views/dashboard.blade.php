@@ -26,11 +26,7 @@
     @endforeach
 @endif
 
-    @elseif(auth()->user()->role === 'admin')
-        <div class="mb-4">
-            <a href="{{ route('deliveries.index') }}" class="text-blue-500 hover:underline">Manage Deliveries</a>
-        </div>
-    @endif
+    
     
 </div>
 
