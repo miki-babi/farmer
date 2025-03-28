@@ -42,6 +42,7 @@ class UserController extends Controller
             $farmers=User::where('role','farmer')->get();
             $deliveries=Delivery::all();
             return view('admin.dashboard',compact('stocks','products','farmers','deliveries','users'));
-        }
+        };
+        return redirect()->route('dashboard');
     }
 }
