@@ -23,17 +23,17 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'phone' => 'required|string|unique:users,phone',
             'password' => 'required|string|min:6|confirmed',
-            'role' => 'required|in:farmer,admin'
+            // 'role' => 'required|in:farmer,admin'
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
-            'role' => $request->role
+            'role' => 'farmer'
         ]);
 
-        // auth()->login($user);
+        Auth::login($user);
 
         if (Auth::user()->role === 'admin') {
             $users=User::all();
