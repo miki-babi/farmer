@@ -35,6 +35,12 @@
     
             <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Register</button>
         </form>
+        <div >
+            <p class="text-center text-sm text-gray-600 mt-4 pt-4">
+                Don't have an account? 
+                <a href="{{ route('login') }}" class="text-blue-500 hover:underline">Register here</a>.
+            </p>
+        </div>
     </div>
 </body>
 </html>
