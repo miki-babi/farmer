@@ -65,7 +65,7 @@
             $('#product-select').empty().append('<option value="">Select a product</option>');
 
             if (farmerId) {
-                $.get('/farmer/' + farmerId + '/products', function (data) {
+                $.get('public/farmer/' + farmerId + '/products', function (data) {
                     data.forEach(function (product) {
                         $('#product-select').append('<option value="' + product.id + '">' + product.name + '</option>');
                     });

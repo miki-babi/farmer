@@ -39,7 +39,7 @@ Route::get('admin/stocks', function () {
     dd($stocks);
     return view('admin.stock', compact('stocks'));
 })->name('admin.stocks.index');
-Route::get('/farmer/{id}/products', [DeliveryController::class, 'getProductsByFarmer']);
+Route::get('/farmer/{id}/products', [DeliveryController::class, 'getProductsByFarmer'])->name("farmer.product");
 
 Route::resource('deliveries', DeliveryController::class);
 Route::resource('products', ProductController::class);
