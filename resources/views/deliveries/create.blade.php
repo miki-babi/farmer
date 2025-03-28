@@ -60,12 +60,15 @@
 
 <script>
     $(document).ready(function () {
+        let fetchProductsUrl = "{{ route('farmer.product', ':id') }}";
+
         $('#farmer-select').change(function () {
             let farmerId = $(this).val();
             $('#product-select').empty().append('<option value="">Select a product</option>');
 
             if (farmerId) {
-                $.get('public/farmer/' + farmerId + '/products', function (data) {
+                let url = fetchProductsUrl.replace(':id', farmerId);
+                $.get(url, function (data) {
                     data.forEach(function (product) {
                         $('#product-select').append('<option value="' + product.id + '">' + product.name + '</option>');
                     });
