@@ -10,13 +10,16 @@ class StockController extends Controller
 {
     public function index()
     {
-        $stocks = Stock::all();
+        $stocks = Stock::whereHas('product', function ($query) {
+            $query->where('farmer_id', Auth::id());
+        })->get();
         return view('stock.index', compact('stocks'));
+    
     }
 
     public function create()
     {
-        $products = Product::all();
+        $products = Product::where('farmer_id', Auth::id())->get();
         return view('stock.create', compact('products'));
     }
 
@@ -39,8 +42,10 @@ class StockController extends Controller
         return redirect()->route('stocks.index');
     }
 
-    public function show(Stock $stock)
+    public function show()
     {
+        $stock=Stock::where('farmer_id', Auth::id())->get();
+        
         return view('stock.show', compact('stock'));
     }
 
